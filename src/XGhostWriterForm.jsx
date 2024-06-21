@@ -41,30 +41,43 @@ const XGhostWriterForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Here you would typically send the data to a server or perform further actions
   };
 
+  const inputStyle = "shadow appearance-none border rounded w-full py-3 px-4 text-gray-800 leading-tight focus:outline-none focus:shadow-outline";
+
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="w-full max-w-md mx-auto bg-white p-8">
       <CardHeader>
-        <CardTitle>X Ghost Writer</CardTitle>
-        <CardDescription>Fill in the details for your X post</CardDescription>
+        <CardTitle className="text-3xl font-bold text-center mb-5 mt-5">X Ghost Writer</CardTitle>
+        <CardDescription className="font-bold text-center mb-5 mt-5">Fill in the details for your X post</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit}>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="theme">What is the theme or topic of this post?</Label>
-              <Input id="theme" name="theme" value={formData.theme} onChange={handleInputChange} />
+              <Input
+                className={inputStyle}
+                id="theme"
+                name="theme"
+                value={formData.theme}
+                onChange={handleInputChange}
+              />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="description">What is this post about?</Label>
-              <Textarea id="description" name="description" value={formData.description} onChange={handleInputChange} />
+              <Textarea
+                className={inputStyle}
+                id="description"
+                name="description"
+                value={formData.description}
+                onChange={handleInputChange}
+              />
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="tone">What should the tone be?</Label>
               <Select onValueChange={handleToneChange}>
-                <SelectTrigger id="tone">
+                <SelectTrigger id="tone" className={inputStyle}>
                   <SelectValue placeholder="Select tone" />
                 </SelectTrigger>
                 <SelectContent position="popper">
@@ -77,7 +90,13 @@ const XGhostWriterForm = () => {
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="audience">Who is the target audience?</Label>
-              <Input id="audience" name="audience" value={formData.audience} onChange={handleInputChange} />
+              <Input
+                className={inputStyle}
+                id="audience"
+                name="audience"
+                value={formData.audience}
+                onChange={handleInputChange}
+              />
             </div>
             <div className="flex items-center space-x-2">
               <Switch id="emojis" checked={formData.includeEmojis} onCheckedChange={handleEmojiToggle} />
@@ -86,8 +105,14 @@ const XGhostWriterForm = () => {
           </div>
         </form>
       </CardContent>
-      <CardFooter>
-        <Button type="submit" onClick={handleSubmit}>Generate Post</Button>
+      <CardFooter className="flex justify-center mt-6">
+        <Button 
+          type="submit" 
+          onClick={handleSubmit}
+          className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Generate Post
+        </Button>
       </CardFooter>
     </Card>
   );
