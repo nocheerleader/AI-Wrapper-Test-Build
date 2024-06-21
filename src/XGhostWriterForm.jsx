@@ -48,8 +48,8 @@ const XGhostWriterForm = () => {
   return (
     <Card className="w-full max-w-md mx-auto bg-white p-8">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold text-center mb-5 mt-5">X Ghost Writer</CardTitle>
-        <CardDescription className="font-bold text-center mb-5 mt-5">Fill in the details for your X post</CardDescription>
+        <h1 className="text-3xl font-bold text-center mb-5 mt-5 p-5">X Ghost Writer</h1>
+        <CardDescription className="font-bold text-center mb-5 mt-5 p-5">Fill in the details for your X post</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit}>
@@ -77,7 +77,7 @@ const XGhostWriterForm = () => {
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="tone">What should the tone be?</Label>
               <Select onValueChange={handleToneChange}>
-                <SelectTrigger id="tone" className={inputStyle}>
+                <SelectTrigger id="tone" className={`${inputStyle} border`}>
                   <SelectValue placeholder="Select tone" />
                 </SelectTrigger>
                 <SelectContent position="popper">
@@ -98,7 +98,7 @@ const XGhostWriterForm = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 p-5">
               <Switch id="emojis" checked={formData.includeEmojis} onCheckedChange={handleEmojiToggle} />
               <Label htmlFor="emojis">Include emojis?</Label>
             </div>
