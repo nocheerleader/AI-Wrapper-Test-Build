@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import XGhostWriterForm from './XGhostWriterForm';
 import CraftPrompt from './CraftPrompt';
+import TestOutput from './TestOutput';
 
 const App = () => {
   return (
@@ -19,12 +20,18 @@ const App = () => {
                 Craft Prompt
               </Link>
             </li>
+            <li>
+              <Link to="/test-output" className="text-purple-600 hover:text-purple-800">
+                Test Output
+              </Link>
+            </li>
           </ul>
         </nav>
 
         <Routes>
           <Route path="/" element={<XGhostWriterForm />} />
           <Route path="/craft-prompt" element={<CraftPrompt />} />
+          <Route path="/test-output" element={<TestOutput />} />
         </Routes>
       </div>
     </Router>
@@ -32,5 +39,3 @@ const App = () => {
 };
 
 export default App;
-
-
