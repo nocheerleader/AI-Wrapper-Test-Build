@@ -48,8 +48,8 @@ const XGhostWriterForm = () => {
   return (
     <Card className="w-full max-w-md mx-auto bg-white p-8">
       <CardHeader>
-        <h1 className="text-3xl font-bold text-center mb-5 mt-5 p-5">X Ghost Writer</h1>
-        <CardDescription className="font-bold text-center mb-5 mt-5 p-5">Fill in the details for your X post</CardDescription>
+        <h1 className="text-3xl font-bold text-center mt-3">X Ghost Writer</h1>
+        <CardDescription className="font-bold text-center">Fill in the details for your X post</CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit}>
@@ -76,17 +76,17 @@ const XGhostWriterForm = () => {
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="tone">What should the tone be?</Label>
-              <Select onValueChange={handleToneChange}>
-                <SelectTrigger id="tone" className={`${inputStyle} border`}>
+              <SelectTrigger className={inputStyle}>
+                <Select id="tone" onValueChange={handleToneChange} defaultValue="">
                   <SelectValue placeholder="Select tone" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                  <SelectItem value="casual">Casual</SelectItem>
-                  <SelectItem value="formal">Formal</SelectItem>
-                  <SelectItem value="humorous">Humorous</SelectItem>
-                  <SelectItem value="serious">Serious</SelectItem>
-                </SelectContent>
-              </Select>
+                  <SelectContent>
+                    <SelectItem value="casual">Casual</SelectItem>
+                    <SelectItem value="formal">Formal</SelectItem>
+                    <SelectItem value="humorous">Humorous</SelectItem>
+                    <SelectItem value="serious">Serious</SelectItem>
+                  </SelectContent>
+                </Select>
+              </SelectTrigger>
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="audience">Who is the target audience?</Label>
@@ -105,7 +105,7 @@ const XGhostWriterForm = () => {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-center mt-6">
+      <CardFooter className="flex justify-center mt-2">
         <Button 
           type="submit" 
           onClick={handleSubmit}
